@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 4 - Form Validation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .card { background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%); padding: 30px; backdrop-filter: blur(10px); }
+        .card-title { font-size: 24px; margin-bottom: 12px; color: #000; }
+        .card-text { margin-bottom: 20px; line-height: 1.6; color: #000; }
+        .d-flex { display: flex; }
+        .justify-content-between { justify-content: space-between; }
+        .text-center { text-align: center; }
+        .mb-3 { margin-bottom: 15px; }
+        .mt-3 { margin-top: 15px; }
+        .form-label { display: block; margin-bottom: 5px; font-weight: bold; color: #000; }
+        .form-control { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; }
+        .btn { padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; color: #000; font-weight: bold; }
+        .btn-primary { background-color: #00ff00; color: #000; }
+        .btn-secondary { background-color: #ff0000; color: #000; }
+        .btn-success { background-color: #00ff00; color: #000; }
+        
+        body {
+            background: linear-gradient(135deg, #ff0000 0%, #ffff00 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: none;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .success-message {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h5 class="card-title">Level 4: Form Validation</h5>
+                        <p class="card-text">Time to validate user input! Enter your name below.</p>
+                        
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">Your Name:</label>
+                            <input type="text" class="form-control" id="nameInput" placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="text-center mb-3">
+                            <button class="btn btn-success" onclick="validateForm()">Submit</button>
+                        </div>
+                        
+                        <div id="errorMessage" class="error-message hidden">
+                            ❌ Please enter your name!
+                        </div>
+                        
+                        <div id="successMessage" class="success-message hidden">
+                            ✅ Welcome, <span id="userName"></span>! Form validated successfully!
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-3">
+                            <button class="btn btn-secondary" onclick="location.href='level3.html'">Back</button>
+                            <button class="btn btn-primary" onclick="location.href='level5.html'">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function validateForm() {
+            const nameInput = document.getElementById('nameInput');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            const userName = document.getElementById('userName');
+            
+            if (nameInput.value.trim() === '') {
+                errorMessage.classList.remove('hidden');
+                successMessage.classList.add('hidden');
+            } else {
+                errorMessage.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                userName.textContent = nameInput.value;
+            }
+        }
+    </script>
+</body>
+</html>
