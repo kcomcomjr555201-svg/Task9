@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; url=level1.html">
+    <title>Web Dev Mini-Quest</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #ff0000 0%, #ffff00 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+        .message {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        h1 {
+            color: #000;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #000;
+            font-size: 18px;
+        }
+        a {
+            color: #000;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>🎮 Web Dev Mini-Quest</h1>
+        <p>Redirecting to Level 1...</p>
+        <p style="margin-top: 15px;">If you're not redirected, <a href="level1.html">click here</a>.</p>
+    </div>
+    
+    <script>
+        // Backup JavaScript redirect in case meta refresh doesn't work
+        setTimeout(function() {
+            window.location.href = 'level1.html';
+        }, 100);
+    </script>
+</body>
+</html>
